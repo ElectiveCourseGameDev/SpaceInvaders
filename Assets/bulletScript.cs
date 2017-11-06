@@ -13,6 +13,8 @@ public class bulletScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Translate(Vector2.up * speed);
+
+        float step = speed * Time.deltaTime;
+        transform.Translate(Vector2.up * step);
 	}
 }
