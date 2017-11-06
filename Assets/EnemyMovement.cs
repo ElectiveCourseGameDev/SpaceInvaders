@@ -29,22 +29,23 @@ public class EnemyMovement : MonoBehaviour {
         if (Vector3.Distance(transform.position, destination) < 0.01f)
         {
             nextMove();
-            switch (currentMove)
-            {
-                case move.LEFT:
-                    destination = Vector2.left * horizontalMove;
-                    break;
-                case move.POSTLEFT:
-                    destination = Vector2.down * verticalMove;
-                    break;
-                case move.RIGHT:
-                    destination = Vector2.right * horizontalMove;
-                    break;
-                case move.POSTRIGHT:
-                    destination = Vector2.down * verticalMove;
-                    break;
-            }
         }
+        switch (currentMove)
+        {
+            case move.LEFT:
+                destination = Vector2.left * horizontalMove;
+                break;
+            case move.POSTLEFT:
+                destination = Vector2.down * verticalMove;
+                break;
+            case move.RIGHT:
+                destination = Vector2.right * horizontalMove;
+                break;
+            case move.POSTRIGHT:
+                destination = Vector2.down * verticalMove;
+                break;
+        }
+        
         
         // move towards destination point
         float step = speed * Time.deltaTime;
