@@ -15,6 +15,15 @@ public class bulletScript : MonoBehaviour {
 	void Update () {
 
         float step = speed * Time.deltaTime;
-        transform.Translate(Vector2.up * step);
+        transform.Translate(Vector2.up * step);        
+        
+        if (transform.position.y > 6 ) // has left the scene
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.SendMessage("removeBullet");
+
+            Destroy(gameObject);
+        }
 	}
+
 }
