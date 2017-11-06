@@ -12,14 +12,17 @@ public class instantiateEnemies : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+        GameObject enemySwarm = new GameObject();
+        enemySwarm.name = "EnemySwarm";
+
         for (int i = 0; i < enemyRows; i++)
         {
             for (int j = 0; j < enemyRowLength; j++)
             {
                 GameObject enemyInstance = Instantiate(Resources.Load("enemy1", typeof(GameObject))) as GameObject;
                 enemyInstance.transform.Translate(startingPoint + new Vector2(enemyDistance*j, enemyRowDistance*i));
-
-
+                enemyInstance.transform.parent = enemySwarm.transform;
             }
         }
         
