@@ -18,18 +18,19 @@ public class EnemyMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        destination = transform.position + Vector3.right * 1;
+        destination = transform.position + Vector3.left * horizontalMove;
         
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+        
         // has reached destination
         if (Vector3.Distance(transform.position, destination) < 0.01f)
         {
             nextMove();
         }
+        /*
         switch (currentMove)
         {
             case move.LEFT:
@@ -45,7 +46,7 @@ public class EnemyMovement : MonoBehaviour {
                 destination = Vector2.down * verticalMove;
                 break;
         }
-        
+        */
         
         // move towards destination point
         float step = speed * Time.deltaTime;
@@ -59,12 +60,30 @@ public class EnemyMovement : MonoBehaviour {
 
     private void nextMove()
     {
+        //Debug.Log(currentMove);
         currentMove++;
         if ((int)currentMove >= statesLength)
         {
             currentMove = 0;
         }
        
-        Debug.Log(currentMove);
+        //Debug.Log(currentMove);
+
+        switch (currentMove)
+        {
+            case move.LEFT:
+                destination = transform.position + Vector3.left * horizontalMove;
+                break;
+            case move.POSTLEFT:
+                destination = transform.position + Vector3.down * verticalMove;
+                break;
+            case move.RIGHT:
+                destination = transform.position + Vector3.right * horizontalMove;
+                break;
+            case move.POSTRIGHT:
+                destination = transform.position + Vector3.down * verticalMove;
+                break;
+        }
+        
     }
 }
