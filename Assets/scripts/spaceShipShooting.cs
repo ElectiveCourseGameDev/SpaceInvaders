@@ -6,7 +6,7 @@ using UnityEngine;
 public class spaceShipShooting : MonoBehaviour {
 
     public float coolDown = 1;
-    private float timeLastShot= 0;
+    private float nextShot= Time.fixedTime;
     // Use this for initialization
 	void Start () {
 	}
@@ -15,16 +15,17 @@ public class spaceShipShooting : MonoBehaviour {
 	void Update () {
         if (isCoolDown())
         {
+            instansiateBullet();
+
             Debug.Log("!#¤");
         }
-        instansiateBullet();
 	}
 
     private bool isCoolDown()
     {
-        if (Time.time > timeLastShot+coolDown)
+        if (Time.fixedTime > nextShot)
         {
-            timeLastShot = Time.time;
+            nextShot = Time.fixedTime + coolDown;
             return true;
         }
         return false;
