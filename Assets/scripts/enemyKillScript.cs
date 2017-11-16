@@ -7,6 +7,7 @@ public class enemyKillScript : MonoBehaviour {
     public void killEnemy()
     {
         //Debug.Log("Enemy killed by bullet");
+        //SendMessage("removeBullet");
         GameObject.Destroy(gameObject);
     }
 

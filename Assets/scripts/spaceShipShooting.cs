@@ -6,18 +6,17 @@ using UnityEngine;
 public class spaceShipShooting : MonoBehaviour {
 
     public float coolDown = 1;
-    private float nextShot= Time.fixedTime;
+    private float nextShot;
     // Use this for initialization
 	void Start () {
-	}
+        nextShot = Time.fixedTime;
+    }
 	
 	// Update is called once per frame
 	void Update () {
         if (isCoolDown())
         {
             instansiateBullet();
-
-            Debug.Log("!#¤");
         }
 	}
 
@@ -38,5 +37,6 @@ public class spaceShipShooting : MonoBehaviour {
 
         // set bullet position to this position
         bullet.transform.position = transform.position;
+        bullet.GetComponent<bulletScript>().direction = bulletScript.Direction.DOWN;
     }
 }

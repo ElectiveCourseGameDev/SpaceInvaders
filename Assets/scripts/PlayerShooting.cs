@@ -17,7 +17,10 @@ public class PlayerShooting : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            shoot();
+            if (bullets < bulletsAllowed)
+            {
+                shoot();
+            }
         }
 
         if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x >-8.5f)
@@ -36,11 +39,13 @@ public class PlayerShooting : MonoBehaviour {
     {
         GameObject bullet = Instantiate(Resources.Load("Bullet", typeof(GameObject))) as GameObject;
         bullet.transform.position = transform.position;
+        bullet.GetComponent<bulletScript>().owner = gameObject;
         bullets++;
     }
 
     public void removeBullet()
     {
+        Debug.Log("remove bullet called");
         bullets--;
     }
 

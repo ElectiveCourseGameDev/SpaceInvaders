@@ -5,8 +5,11 @@ using UnityEngine;
 public class bulletScript : MonoBehaviour {
 
     public float speed;
+    public Direction direction = Direction.UP;
+    public GameObject owner;
 
-	// Use this for initialization
+    public enum Direction { UP, DOWN};
+    // Use this for initialization
 	void Start () {
 		
 	}
@@ -15,15 +18,34 @@ public class bulletScript : MonoBehaviour {
 	void Update () {
 
         float step = speed * Time.deltaTime;
-        transform.Translate(Vector2.up * step);        
+        if (direction == Direction.UP) transform.Translate(Vector2.up * step);
+        else transform.Translate(Vector2.down * step);
         
-        if (transform.position.y > 6 ) // has left the scene
+        if (transform.position.y > 5 ) // has left the scene
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.SendMessage("removeBullet");
-
-            Destroy(gameObject);
+            DestroyBullet();
         }
-	}
+    }
+
+    private void DestroyBullet()
+    {
+        owner.SendMessage("removeBullet");
+        Debug.Log("SendMessage");
+        Destroy(gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        // hits enemy?
+        if (coll.gameObject.tag == "Enemy")
+
+            // tell enemy to kill itself
+            coll.gameObject.SendMessage("killEnemy");
+
+        // destroy bullet
+        DestroyBullet();
+
+
+    }
 
 }
