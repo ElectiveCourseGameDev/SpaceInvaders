@@ -20,12 +20,12 @@ public class PlayerShooting : MonoBehaviour {
             shoot();
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x >-8.5f)
         {
             transform.Translate(Vector2.left * movement);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) && transform.position.x <=8.5f)
         {
             transform.Translate(Vector2.right * movement);
         }

@@ -8,8 +8,14 @@ public class bulletColliderScript : MonoBehaviour {
     {
         Debug.Log("collider trigger");
 
+        // hits enemy?
         if (coll.gameObject.tag == "Enemy")
+
+            // tell enemy to kill itself
             coll.gameObject.SendMessage("killEnemy");
+
+            // destroy bullet
+            Destroy(gameObject);
         }
 
     // Use this for initialization
