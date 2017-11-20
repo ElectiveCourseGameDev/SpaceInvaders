@@ -9,6 +9,7 @@ public class instantiateEnemies : MonoBehaviour {
     public float enemyDistance = 1f;
     public float enemyRowDistance = 1f;
     public Vector2 startingPoint;
+    public float scale = 1f;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +22,7 @@ public class instantiateEnemies : MonoBehaviour {
             for (int j = 0; j < enemyRowLength; j++)
             {
                 GameObject enemyInstance = Instantiate(Resources.Load("enemy1", typeof(GameObject))) as GameObject;
+                enemyInstance.transform.localScale = new Vector3(scale, scale);
                 enemyInstance.transform.Translate(startingPoint + new Vector2(enemyDistance*j, enemyRowDistance*i));
                 enemyInstance.transform.parent = enemySwarm.transform;
             }
