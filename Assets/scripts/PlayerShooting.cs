@@ -8,9 +8,10 @@ public class PlayerShooting : MonoBehaviour {
     public int bulletsAllowed;
     public float movement;
 
+    private GameObject sound;
 	// Use this for initialization
 	void Start () {
-		
+		sound = GameObject.FindGameObjectWithTag("Sound");
 	}
 	
 	// Update is called once per frame
@@ -37,6 +38,8 @@ public class PlayerShooting : MonoBehaviour {
 
     private void shoot()
     {
+        sound.SendMessage("playSound", SoundEngine.Sound.Lasershot);
+
         GameObject bullet = Instantiate(Resources.Load("Bullet", typeof(GameObject))) as GameObject;
         bullet.transform.position = transform.position;
         bullet.GetComponent<bulletScript>().owner = gameObject;

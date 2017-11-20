@@ -36,15 +36,14 @@ public class bulletScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        // hits enemy?
-        if (coll.gameObject.tag == "Enemy")
+        if (!coll.gameObject.Equals(owner))
+        {
+            //send killmesage to object
+            coll.SendMessage("killGameObject");
 
-            // tell enemy to kill itself
-            coll.gameObject.SendMessage("killEnemy");
-
-        // destroy bullet
-        DestroyBullet();
-
+            // destroy bullet
+            DestroyBullet();
+        }
 
     }
 
