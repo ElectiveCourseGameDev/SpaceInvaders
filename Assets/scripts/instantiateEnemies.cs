@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class instantiateEnemies : MonoBehaviour {
+public class instantiateEnemies : MonoBehaviour
+{
 
-    public int enemyRows = 4;
-    public int enemyRowLength = 16;
+    //private GameObject grid;
+
+    public int enemyRows = 5;
+    public int enemyRowLength = 11;
     public float enemyDistance = 1f;
     public float enemyRowDistance = 1f;
     public Vector2 startingPoint;

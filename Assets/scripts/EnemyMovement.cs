@@ -5,20 +5,23 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
 
-    public float speed;
-    public float verticalMove;
-    public float horizontalMove;
+    public float Speed; // moving speed
+    public float VerticalMove; // how far they move vertically
+    public float HorizontalMove; // how far they move horizontally
 
-    private Vector2 destination;
+    private Vector2 destination; // destination they move towards
 
-    private enum move { LEFT, POSTLEFT, RIGHT, POSTRIGHT};
-    private int statesLength = Enum.GetNames(typeof(move)).Length;
+    private enum Move { LEFT, POSTLEFT, RIGHT, POSTRIGHT};
+    private int statesLength = Enum.GetNames(typeof(Move)).Length;
 
-    private move currentMove = move.LEFT;
+    private Move currentMove = Move.RIGHT; // current direction
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 
-        destination = transform.position + Vector3.left * horizontalMove;
+	    destination = SetDestination();
+        Debug.Log(currentMove);
+        Debug.Log(destination);
         
 	}
 	
@@ -28,62 +31,57 @@ public class EnemyMovement : MonoBehaviour {
         // has reached destination
         if (Vector3.Distance(transform.position, destination) < 0.01f)
         {
-            nextMove();
+            currentMove = (Move) NextMove();
+            destination = SetDestination();
+            Debug.Log(currentMove);
+            Debug.Log(destination);
         }
-        /*
-        switch (currentMove)
-        {
-            case move.LEFT:
-                destination = Vector2.left * horizontalMove;
-                break;
-            case move.POSTLEFT:
-                destination = Vector2.down * verticalMove;
-                break;
-            case move.RIGHT:
-                destination = Vector2.right * horizontalMove;
-                break;
-            case move.POSTRIGHT:
-                destination = Vector2.down * verticalMove;
-                break;
-        }
-        */
-        
+       
         // move towards destination point
-        float step = speed * Time.deltaTime;
+        float step = Speed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, destination, step);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            nextMove();
+            NextMove();
         }
     }
 
-    private void nextMove()
+    private int NextMove()
     {
         //Debug.Log(currentMove);
-        currentMove++;
-        if ((int)currentMove >= statesLength)
+        int move = (int) currentMove;
+        move++;
+        if (move >= statesLength)
         {
-            currentMove = 0;
+            return 0;
         }
-       
-        //Debug.Log(currentMove);
+        return move;
+    }
 
+    //Debug.Log(currentMove);
+    public Vector2 SetDestination()
+    {
         switch (currentMove)
         {
-            case move.LEFT:
-                destination = transform.position + Vector3.left * horizontalMove;
+            case Move.LEFT:
+                return transform.position + Vector3.left * HorizontalMove;
                 break;
-            case move.POSTLEFT:
-                destination = transform.position + Vector3.down * verticalMove;
+            case Move.POSTLEFT:
+                return transform.position + Vector3.down * VerticalMove;
+
                 break;
-            case move.RIGHT:
-                destination = transform.position + Vector3.right * horizontalMove;
+            case Move.RIGHT:
+                return transform.position + Vector3.right * HorizontalMove;
                 break;
-            case move.POSTRIGHT:
-                destination = transform.position + Vector3.down * verticalMove;
+            case Move.POSTRIGHT:
+                return transform.position + Vector3.down * VerticalMove;
                 break;
+            default:
+                return destination;
         }
+    }
         
     }
-}
+
+

@@ -35,12 +35,15 @@ public class SoundEngine : MonoBehaviour
         switch (sound)
         {
             case Sound.Lasershot:
-               _audioSources[0].PlayOneShot(this.sound[0], 1f);
+                _audioSources[0].pitch = Random.Range(pitchLowRange, pitchHighRange);
+                _audioSources[0].PlayOneShot(this.sound[0], 1f);
                 break;
             case Sound.Explosion:
+                _audioSources[1].pitch = Random.Range(pitchLowRange, pitchHighRange);
                 _audioSources[1].PlayOneShot(this.sound[1], 1f);
                 break;
             case Sound.PowerUp:
+                _audioSources[2].pitch = Random.Range(pitchLowRange, pitchHighRange);
                 _audioSources[2].PlayOneShot(this.sound[0], 1f);
                 break;
         }
