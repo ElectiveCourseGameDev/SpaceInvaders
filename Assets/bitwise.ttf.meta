@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 6d1ae4610ba9f374194fcdb98196b827
-timeCreated: 1511182954
+guid: 320db6a3046f80940b859bc2e97404ea
+timeCreated: 1512640015
 licenseType: Free
 TrueTypeFontImporter:
   serializedVersion: 4
   fontSize: 160
-  forceTextureCase: -1
+  forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Cosmic Alien
+  fontName: Bitwise
   fontNames:
-  - Cosmic Alien
+  - Bitwise
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

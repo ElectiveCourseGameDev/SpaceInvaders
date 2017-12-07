@@ -20,21 +20,21 @@ public class EnemyMovement : MonoBehaviour {
 	{
 
 	    destination = SetDestination();
-        Debug.Log(currentMove);
-        Debug.Log(destination);
+        //Debug.Log(currentMove);
+        //Debug.Log(destination);
         
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        
+
         // has reached destination
         if (Vector3.Distance(transform.position, destination) < 0.01f)
         {
             currentMove = (Move) NextMove();
             destination = SetDestination();
-            Debug.Log(currentMove);
-            Debug.Log(destination);
+            //Debug.Log(currentMove);
+            //Debug.Log(destination);
         }
        
         // move towards destination point

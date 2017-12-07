@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class HudExtraLives : MonoBehaviour {
 
-    public int lives = 3;
+    private int lives = 3;
 
-    private GameObject[] extraLives = new GameObject[3];
+    public GameObject[] extraLives = new GameObject[3];
 
     // Use this for initialization
     void Start()
@@ -23,5 +23,11 @@ public class HudExtraLives : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
+    }
+
+    public void died()
+    {
+        extraLives[lives-1].SetActive(false);
+        lives--;
     }
 } 

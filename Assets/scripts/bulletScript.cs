@@ -39,6 +39,8 @@ public class bulletScript : MonoBehaviour {
         if (!coll.gameObject.Equals(owner))
         {
             //send killmesage to object
+            Debug.Log("send kill message");
+
             coll.SendMessage("killGameObject");
 
             // destroy bullet
