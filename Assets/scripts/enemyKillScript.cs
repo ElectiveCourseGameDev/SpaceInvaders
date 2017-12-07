@@ -16,6 +16,10 @@ public class enemyKillScript : MonoBehaviour
         HUD.SendMessage("incrementScore", KillPoint);
         GameObject.Destroy(gameObject);
        
+            GameObject KillEffect = Instantiate(Resources.Load("Explosion", typeof(GameObject))) as GameObject;
+            KillEffect.transform.position = transform.position;
+        
+
     }
 
 	// Use this for initialization

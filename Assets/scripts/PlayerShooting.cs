@@ -9,7 +9,11 @@ public class PlayerShooting : MonoBehaviour {
     public int bulletsAllowed;
     public float movement;
     private GameObject sound;
-	// Use this for initialization
+
+    public float leftBoundaries =  -4;
+    public float rightBoundaries = +4;
+
+    // Use this for initialization
 	void Start () {
 		sound = GameObject.FindGameObjectWithTag("Sound");
 	}
@@ -49,15 +53,17 @@ public class PlayerShooting : MonoBehaviour {
             }
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x >-8.5f)
+        if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x > leftBoundaries)
         {
             transform.Translate(Vector2.left * movement);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow) && transform.position.x <=8.5f)
+        if (Input.GetKey(KeyCode.RightArrow) && transform.position.x <= rightBoundaries)
         {
             transform.Translate(Vector2.right * movement);
         }
+
+        
     }
 
     private void shoot()
