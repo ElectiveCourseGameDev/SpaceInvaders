@@ -80,6 +80,7 @@ public class PlayerShooting : MonoBehaviour {
     {
         //Debug.Log("remove bullet called");
         bullets--;
+        if (bullets < 0) bullets = 0;
     }
 
     void increaseAllowedBullets()
