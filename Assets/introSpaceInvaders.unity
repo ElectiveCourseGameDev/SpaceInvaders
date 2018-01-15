@@ -150,6 +150,53 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c91ec2dc0ef03274f894c2c18f1777e6, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &999772666
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 114884845489421316, guid: 3d1108e6fd2a63245ab6a6ff11e8daac,
+        type: 2}
+      propertyPath: _audioSources.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834000796516588, guid: 3d1108e6fd2a63245ab6a6ff11e8daac, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834000796516588, guid: 3d1108e6fd2a63245ab6a6ff11e8daac, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -5.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834000796516588, guid: 3d1108e6fd2a63245ab6a6ff11e8daac, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834000796516588, guid: 3d1108e6fd2a63245ab6a6ff11e8daac, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834000796516588, guid: 3d1108e6fd2a63245ab6a6ff11e8daac, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834000796516588, guid: 3d1108e6fd2a63245ab6a6ff11e8daac, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834000796516588, guid: 3d1108e6fd2a63245ab6a6ff11e8daac, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834000796516588, guid: 3d1108e6fd2a63245ab6a6ff11e8daac, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3d1108e6fd2a63245ab6a6ff11e8daac, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1110885428
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,22 +286,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1296248307 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1234408888927838, guid: c91ec2dc0ef03274f894c2c18f1777e6,
-    type: 2}
-  m_PrefabInternal: {fileID: 558825837}
---- !u!114 &1296248312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1296248307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3016bc7dae8c3429f760ef203e4d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1773255414
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +296,7 @@ GameObject:
   - component: {fileID: 1773255416}
   - component: {fileID: 1773255415}
   m_Layer: 0
-  m_Name: spaceInvadersSpriteSheet_61
+  m_Name: backgroundImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -304,7 +335,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300122, guid: 2c2cf08a3051ee449b502f3ae1cc42f8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.159}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

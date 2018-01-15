@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SoundEngine : MonoBehaviour
 {
-    public AudioSource[] _audioSources;
+    private AudioSource[] _audioSources;
     public AudioClip[] sound;
 
     public float pitchLowRange;
