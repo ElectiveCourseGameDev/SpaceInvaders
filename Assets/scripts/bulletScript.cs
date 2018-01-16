@@ -30,7 +30,7 @@ public class bulletScript : MonoBehaviour {
     private void DestroyBullet()
     {
         owner.SendMessage("removeBullet");
-        Debug.Log("SendMessage");
+        //Debug.Log("SendMessage");
         Destroy(gameObject);
     }
 
