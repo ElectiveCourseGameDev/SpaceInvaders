@@ -1,8 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bulletScript : MonoBehaviour {
+public class bulletScript : MonoBehaviour
+{
+
+    public Boolean debug;
 
     public float speed;
     public Direction direction = Direction.UP;
@@ -39,7 +43,7 @@ public class bulletScript : MonoBehaviour {
         if (!coll.gameObject.Equals(owner))
         {
             //send killmesage to object
-            Debug.Log("send kill message");
+            if (debug) Debug.Log("send kill message");
 
             coll.SendMessage("killGameObject");
 

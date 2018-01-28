@@ -1,18 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class enemyKillScript : MonoBehaviour
 {
-    private GameObject audio;
+    private GameObject audioSound;
     private GameObject HUD;
+
+    public Boolean DebugMode;
 
     public int KillPoint;
 
     public void killGameObject()
     {
-        Debug.Log("Enemy killed by bullet");
-        audio.SendMessage("playSound", SoundEngine.Sound.Explosion);
+        if (DebugMode)Debug.Log("Enemy killed by bullet");
+        audioSound.SendMessage("playSound", SoundEngine.Sound.Explosion);
         HUD.SendMessage("incrementScore", KillPoint);
         GameObject.Destroy(gameObject);
        
@@ -25,7 +28,7 @@ public class enemyKillScript : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-        audio = GameObject.FindWithTag("Sound");
+        audioSound = GameObject.FindWithTag("Sound");
 	    HUD = GameObject.FindGameObjectWithTag("HUD");
 	}
 	

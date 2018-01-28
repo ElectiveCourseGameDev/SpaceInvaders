@@ -66,17 +66,12 @@ public class EnemyMovement : MonoBehaviour {
         {
             case Move.LEFT:
                 return transform.position + Vector3.left * HorizontalMove;
-                break;
             case Move.POSTLEFT:
                 return transform.position + Vector3.down * VerticalMove;
-
-                break;
             case Move.RIGHT:
                 return transform.position + Vector3.right * HorizontalMove;
-                break;
             case Move.POSTRIGHT:
                 return transform.position + Vector3.down * VerticalMove;
-                break;
             default:
                 return destination;
         }
